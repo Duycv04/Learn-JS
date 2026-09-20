@@ -77,19 +77,3 @@ const student = {
 console.log(student.name);
 console.log(student.hobbies[0]);
 ```
-
-## 5. Kết luận
-
-Hiểu rõ kiểu dữ liệu là bước đầu tiên để viết JavaScript hiệu quả. Bạn cần biết:
-
-- Dữ liệu nào là chuỗi, số, boolean
-- Khi nào biến là `undefined` hoặc `null`
-- `Object` và `Array` dùng để lưu tập hợp dữ liệu phức tạp
-
----
-
-Bạn có thể tiếp tục học theo các chủ đề:
-
-- [Biến](../Biến/readme.md)
-- [Object](../Object/readme.md)
-- [Array](../Array/readme.md)

@@ -108,7 +108,3 @@ console.log(message);
 - `else if` dùng cho nhiều điều kiện
 - `switch` hợp lý khi có nhiều lựa chọn cố định
 - `? :` là dạng rút gọn cho điều kiện đơn giản
-
----
-
-Bạn nên ưu tiên viết điều kiện rõ ràng và dễ đọc để code dễ bảo trì hơn.

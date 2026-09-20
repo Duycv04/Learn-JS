@@ -216,34 +216,97 @@ const user = {
 console.log(Object.keys(user)); // ["name", "age", "city"]
 ```
 
-## 14. Kết luận
+## 14. `Object.values()`
 
-Object là kiểu dữ liệu cực kỳ quan trọng trong JavaScript. Nó giúp bạn lưu trữ dữ liệu có cấu trúc, mô phỏng thực thể trong ứng dụng và làm việc rất hiệu quả với dữ liệu phức tạp.
+`Object.values()` lấy ra danh sách các giá trị của object.
 
----
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+  city: "Bắc Giang",
+};
 
-Bạn nên luyện tập nhiều với ví dụ như:
+console.log(Object.values(user)); // ["Duy", 20, "Bắc Giang"]
+```
 
-- Thông tin sinh viên
-- Thông tin sản phẩm
-- Thông tin người dùng
-- Danh sách công việc
+## 15. `Object.entries()`
 
-Object.values()
-Lấy danh sách value.
+`Object.entries()` lấy cả key và value dưới dạng mảng cặp `[key, value]`.
 
-console.log(Object.values(user));
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+  city: "Bắc Giang",
+};
 
-Kết quả: ["Duy", 20, "Bắc Giang"]
-
-Object.entries()
-
-Lấy cả key và value.
 console.log(Object.entries(user));
+// [ ["name", "Duy"], ["age", 20], ["city", "Bắc Giang"] ]
+```
+
+## 16. Destructuring Object
+
+Bạn có thể lấy giá trị từ object nhanh hơn bằng destructuring.
+
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+  city: "Bắc Giang",
+};
+
+const { name, age, city } = user;
+
+console.log(name); // Duy
+console.log(age); // 20
+console.log(city); // Bắc Giang
+```
+
+## 17. Gộp Object
+
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+};
+
+const info = {
+  city: "Bắc Giang",
+  isStudent: true,
+};
+
+const result = { ...user, ...info };
+console.log(result);
+```
 
 Kết quả:
-[
-["name", "Duy"],
-["age", 20],
-["city", "Bắc Giang"]
-]
+
+```js
+{ name: "Duy", age: 20, city: "Bắc Giang", isStudent: true }
+```
+
+## 18. Object trong thực tế
+
+Object thường dùng để mô tả:
+
+- Thông tin người dùng
+- Thông tin sản phẩm
+- Thông tin sinh viên
+- Dữ liệu từ API
+
+Ví dụ:
+
+```js
+const product = {
+  name: "Laptop",
+  price: 20000000,
+  brand: "Dell",
+  stock: 15,
+};
+
+console.log(product.name);
+console.log(product.price);
+```
+
+---

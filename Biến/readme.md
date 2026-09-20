@@ -96,18 +96,3 @@ age = 22;
 console.log(name); // Duy
 console.log(age); // 22
 ```
-
-## 7. Kết luận
-
-Biến là thành phần nền tảng của mọi chương trình JavaScript. Hiểu rõ `var`, `let` và `const` sẽ giúp bạn viết code an toàn, dễ đọc và ít lỗi hơn.
-
----
-
-Bạn nên ưu tiên dùng:
-
-```js
-const userName = "Duy";
-let count = 0;
-```
-
-Thay vì `var` khi code mới.

@@ -13,11 +13,11 @@ for (let i = 0; i < 5; i++) {
 Kết quả:
 
 ```js
-0
-1
-2
-3
-4
+0;
+1;
+2;
+3;
+4;
 ```
 
 ### Cấu trúc
@@ -63,7 +63,7 @@ const user = {
   id: 1,
   name: "Duy",
   age: 21,
-  address: "Bắc Ninh"
+  address: "Bắc Ninh",
 };
 
 for (const key in user) {
@@ -74,10 +74,10 @@ for (const key in user) {
 Kết quả:
 
 ```js
-id
-name
-age
-address
+id;
+name;
+age;
+address;
 ```
 
 Để lấy giá trị:
@@ -113,11 +113,11 @@ for (let i = 0; i <= 10; i++) {
 Kết quả:
 
 ```js
-0
-1
-2
-3
-4
+0;
+1;
+2;
+3;
+4;
 ```
 
 ## 6. `continue`
@@ -136,27 +136,23 @@ for (let i = 0; i <= 10; i++) {
 Kết quả:
 
 ```js
-0
-1
-2
-3
-4
-6
-7
-8
-9
-10
+0;
+1;
+2;
+3;
+4;
+6;
+7;
+8;
+9;
+10;
 ```
 
 ## 7. So sánh nhanh
 
-| Loại vòng lặp | Dùng khi |
-| --- | --- |
-| `for` | Biết trước số lần lặp |
-| `while` | Không biết trước số lần, dựa vào điều kiện |
-| `do...while` | Phải chạy ít nhất 1 lần |
-| `for...in` | Duyệt key của object |
-
-## 8. Kết luận
-
-Vòng lặp là công cụ quan trọng để xử lý dữ liệu lặp lại. Bạn nên nắm vững `for`, `while`, `break` và `continue` trước khi học các kỹ thuật nâng cao hơn.
+| Loại vòng lặp | Dùng khi                                   |
+| ------------- | ------------------------------------------ |
+| `for`         | Biết trước số lần lặp                      |
+| `while`       | Không biết trước số lần, dựa vào điều kiện |
+| `do...while`  | Phải chạy ít nhất 1 lần                    |
+| `for...in`    | Duyệt key của object                       |

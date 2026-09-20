@@ -180,214 +180,227 @@ fruits.splice(1, 0, "Banana");
 console.log(fruits); // ["Apple", "Banana", "Orange"]
 ```
 
-## 14. Tổng kết
+### Thay thế phần tử
 
-Mảng là công cụ cực kỳ quan trọng trong JavaScript. Bạn sẽ sử dụng nó thường xuyên trong:
-
-- Quản lý danh sách dữ liệu
-- Duyệt dữ liệu
-- Xử lý form
-- Làm việc với API
-- Thiết kế web app
-
----
-
-Nếu bạn muốn, mình có thể tiếp tục viết thêm:
-
-- `map()`, `filter()`, `reduce()`
-- Duyệt mảng bằng `forEach()`
-- Bài tập mảng thực hành
-
-Kết quả:
-
-["Apple", "Orange"]
-
-Cấu trúc:
-
-splice(start, deleteCount)
-Thêm phần tử bằng splice()
-let fruits = ["Apple", "Orange"];
-
-fruits.splice(1, 0, "Banana");
-
-console.log(fruits);
-
-Kết quả:
-
-["Apple", "Banana", "Orange"]
-Thay thế phần tử
-let fruits = ["Apple", "Banana", "Orange"];
-
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 fruits.splice(1, 1, "Mango");
 
-console.log(fruits);
+console.log(fruits); // ["Apple", "Mango", "Orange"]
+```
 
-Kết quả:
+## 14. `join()`
 
-["Apple", "Mango", "Orange"]
+`join()` chuyển mảng thành chuỗi.
 
-join()
+```js
+const fruits = ["Apple", "Banana", "Orange"];
+const result = fruits.join(", ");
 
-Chuyển Array thành String.
+console.log(result); // Apple, Banana, Orange
+```
 
-let fruits = ["Apple", "Banana", "Orange"];
+Ví dụ khác:
 
-let result = fruits.join(", ");
+```js
+console.log(fruits.join(" - ")); // Apple - Banana - Orange
+```
 
-console.log(result);
+## 15. `split()`
 
-Kết quả:
+`split()` chuyển chuỗi thành mảng.
 
-Apple, Banana, Orange
+```js
+const text = "Apple,Banana,Orange";
+const fruits = text.split(",");
 
-Ví dụ:
+console.log(fruits); // ["Apple", "Banana", "Orange"]
+```
 
-console.log(fruits.join(" - "));
+## 16. `sort()`
 
-Kết quả:
+`sort()` sắp xếp các phần tử trong mảng.
 
-Apple - Banana - Orange
+### Sắp xếp chuỗi
 
-split()
-
-split() thường dùng để chuyển String thành Array.
-
-let text = "Apple,Banana,Orange";
-
-let fruits = text.split(",");
-
-console.log(fruits);
-
-Kết: ["Apple", "Banana", "Orange"]
-
-sort()
-Sắp xếp Array.
-
-String
-let fruits = ["Orange", "Apple", "Banana"];
-
+```js
+const fruits = ["Orange", "Apple", "Banana"];
 fruits.sort();
 
-console.log(fruits);
+console.log(fruits); // ["Apple", "Banana", "Orange"]
+```
 
-Kết quả:
+### Sắp xếp số
 
-["Apple", "Banana", "Orange"]
-Sort Number
-
-Không nên:
-
-let numbers = [10, 2, 30, 5];
-
-numbers.sort();
-
-console.log(numbers);
-
-Có thể cho kết quả không đúng mong muốn vì sort() mặc định xử lý như String.
-
-Nên dùng:
+```js
+const numbers = [10, 2, 30, 5];
 
 numbers.sort((a, b) => a - b);
-
-Tăng dần:
-
-let numbers = [10, 2, 30, 5];
-
-numbers.sort((a, b) => a - b);
-
-console.log(numbers);
-
-Kết quả:
-
-[2, 5, 10, 30]
+console.log(numbers); // [2, 5, 10, 30]
+```
 
 Giảm dần:
 
+```js
 numbers.sort((a, b) => b - a);
-for với Array
+console.log(numbers); // [30, 10, 5, 2]
+```
 
-Có thể dùng for để duyệt Array.
+> `sort()` mặc định xử lý phần tử như chuỗi, nên khi sắp xếp số cần truyền hàm so sánh.
 
-let fruits = ["Apple", "Banana", "Orange"];
+## 17. `reverse()`
+
+`reverse()` đảo ngược thứ tự mảng.
+
+```js
+const fruits = ["Apple", "Banana", "Orange"];
+fruits.reverse();
+
+console.log(fruits); // ["Orange", "Banana", "Apple"]
+```
+
+## 18. Duyệt mảng bằng `for`
+
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 
 for (let i = 0; i < fruits.length; i++) {
-console.log(fruits[i]);
+  console.log(fruits[i]);
 }
+```
 
 Kết quả:
 
-Apple
-Banana
-Orange
+```js
+Apple;
+Banana;
+Orange;
+```
 
-Đây là cách rất quan trọng.
+## 19. `for...of`
 
-for...of
-Dùng để lấy trực tiếp từng phần tử.
-let fruits = ["Apple", "Banana", "Orange"];
+Dùng để lấy từng phần tử trực tiếp.
 
-for (let fruit of fruits) {
-console.log(fruit);
+```js
+const fruits = ["Apple", "Banana", "Orange"];
+
+for (const fruit of fruits) {
+  console.log(fruit);
 }
+```
 
 Kết quả:
 
-Apple
-Banana
-Orange
+```js
+Apple;
+Banana;
+Orange;
+```
 
-So với for:
+## 20. `forEach()`
 
-for (let i = 0; i < fruits.length; i++) {
-console.log(fruits[i]);
-}
-for...of ngắn hơn khi chỉ cần giá trị.
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 
-forEach()
-Dùng để duyệt từng phần tử.
-
-let numbers = [10, 20, 30];
-
-numbers.forEach(function(number) {
-console.log(number);
+fruits.forEach((fruit) => {
+  console.log(fruit);
 });
+```
 
-filter()
-Lọc phần tử theo điều kiện.
+## 21. `map()`
 
-Ví dụ lấy số chẵn:
+```js
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map((number) => number * 2);
 
-let numbers = [1, 2, 3, 4, 5, 6];
+console.log(doubled); // [2, 4, 6, 8]
+```
 
-let evenNumbers = numbers.filter(number => number % 2 === 0);
+## 22. `filter()`
 
-console.log(evenNumbers);
+```js
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter((number) => number % 2 === 0);
 
-Kết quả: [2, 4, 6]
+console.log(evenNumbers); // [2, 4, 6]
+```
 
-find()
-Tìm phần tử đầu tiên thỏa điều kiện.
+## 23. `reduce()`
 
-let numbers = [10, 20, 30, 40];
+```js
+const numbers = [1, 2, 3, 4];
+const total = numbers.reduce((sum, number) => sum + number, 0);
 
-let result = numbers.find(number => number > 25);
+console.log(total); // 10
+```
 
-console.log(result);
+## 24. `find()`
 
-Kết quả: 30
+`find()` trả về phần tử đầu tiên thỏa điều kiện.
 
-Nếu không tìm thấy: undefined
+```js
+const numbers = [10, 20, 30, 40];
+const result = numbers.find((number) => number > 25);
 
-findIndex()
+console.log(result); // 30
+```
 
-Tìm index của phần tử đầu tiên thỏa điều kiện.
+Nếu không tìm thấy, kết quả sẽ là `undefined`.
 
-let numbers = [10, 20, 30, 40];
+## 25. `findIndex()`
 
-let index = numbers.findIndex(number => number > 25);
+`findIndex()` trả về vị trí đầu tiên thỏa điều kiện.
 
-console.log(index);
+```js
+const numbers = [10, 20, 30, 40];
+const index = numbers.findIndex((number) => number > 25);
 
-Kết quả:
+console.log(index); // 2
+```
 
-2
+## 26. `some()`
+
+`some()` kiểm tra xem có ít nhất một phần tử thỏa điều kiện hay không.
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+const hasEven = numbers.some((number) => number % 2 === 0);
+
+console.log(hasEven); // true
+```
+
+## 27. `every()`
+
+`every()` kiểm tra xem tất cả phần tử có thỏa điều kiện hay không.
+
+```js
+const numbers = [2, 4, 6, 8];
+const allEven = numbers.every((number) => number % 2 === 0);
+
+console.log(allEven); // true
+```
+
+## 28. `concat()`
+
+`concat()` nối hai hoặc nhiều mảng lại với nhau.
+
+```js
+const fruits = ["Apple", "Banana"];
+const moreFruits = ["Orange", "Grape"];
+
+const result = fruits.concat(moreFruits);
+console.log(result); // ["Apple", "Banana", "Orange", "Grape"]
+```
+
+## 29. Tổng kết
+
+Mảng là một trong những kiểu dữ liệu quan trọng nhất trong JavaScript
+Một số phương thức quan trọng cần ghi nhớ:
+
+- `push()`, `pop()`, `shift()`, `unshift()`
+- `indexOf()`, `includes()`
+- `slice()`, `splice()`
+- `join()`, `split()`
+- `sort()`, `reverse()`
+- `forEach()`, `map()`, `filter()`, `reduce()`
+- `find()`, `findIndex()`, `some()`, `every()`, `concat()`

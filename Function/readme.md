@@ -1,219 +1,233 @@
-Khai báo Function
+﻿# Function trong JavaScript
 
-Cú pháp:
-function tenFunction() {
-// code
+Hàm là một khối code có thể được gọi nhiều lần để thực hiện một công việc cụ thể.
+
+## 1. Khai báo function
+
+```js
+function sayHello() {
+  console.log("Hello");
 }
+```
 
-Gọi Function
-Khai báo function không có nghĩa là function tự chạy.
-Muốn chạy function phải gọi:
-tenFunction();
+## 2. Gọi function
 
-Tham số giúp truyền dữ liệu vào function.
+```js
+sayHello();
+```
 
+> Khi khai báo function, code bên trong chưa chạy cho đến khi bạn gọi nó.
+
+## 3. Tham số và đối số
+
+```js
 function hello(name) {
-console.log(`Hello ${name}`);
+  console.log(`Hello ${name}`);
 }
 
 hello("Duy");
+```
 
-Kết quả: Hello Duy
+Kết quả:
 
-name là parameter.
-"Duy" là argument.
+```js
+Hello Duy
+```
 
-Parameter và Argument
+- `name` là parameter
+- `"Duy"` là argument
 
-Ví dụ:
-function sum(a, b) {
-console.log(a + b);
-}
-sum(10, 20);
+## 4. Nhiều tham số
 
-Trong:
-function sum(a, b) a, b là parameter.
-
-Trong:
-sum(10, 20); 10, 20 là argument.
-
-Nhiều tham số
-Một function có thể có nhiều parameter:
-
+```js
 function introduce(name, age, city) {
-console.log(name);
-console.log(age);
-console.log(city);
+  console.log(name);
+  console.log(age);
+  console.log(city);
 }
 
 introduce("Duy", 20, "Bắc Giang");
+```
 
-7. return
-   return dùng để trả kết quả từ function.
+## 5. `return`
 
+`return` dùng để trả kết quả từ function.
+
+```js
 function sum(a, b) {
-return a + b;
+  return a + b;
 }
 
 const result = sum(10, 20);
+console.log(result); // 30
+```
 
-console.log(result);
+### `return` khác `console.log`
 
-Kết quả:30
-
-8. return khác console.log
-   console.log
-
-Chỉ in kết quả:
-
+```js
 function sum(a, b) {
-console.log(a + b);
+  console.log(a + b);
 }
-return
+```
 
-Trả kết quả để có thể sử dụng tiếp:
+Đây chỉ in ra màn hình, không trả giá trị cho code bên ngoài.
 
+```js
 function sum(a, b) {
-return a + b;
+  return a + b;
 }
 
 const result = sum(10, 20);
+console.log(result * 2); // 60
+```
 
-console.log(result \* 2);
+## 6. Function không có `return`
 
-Kết quả:60
-
-Function không có return
-
-Nếu function không có return:
-
+```js
 function hello() {
-console.log("Hello");
+  console.log("Hello");
 }
 
 const result = hello();
-console.log(result);
+console.log(result); // undefined
+```
 
-Kết quả: Hello
-undefined
+> Nếu không có `return`, function sẽ trả về `undefined` theo mặc định.
 
-Giá trị trả về mặc định là:undefined
+## 7. `return` dừng function
 
-return kết thúc Function
-Khi JavaScript gặp return, function dừng ngay.
+```js
 function test() {
-console.log("A");
-return;
-console.log("B");
+  console.log("A");
+  return;
+  console.log("B");
 }
+
 test();
-Kết quả:A
-console.log("B") không chạy.
+```
 
-Default Parameter
+Kết quả:
 
-Có thể đặt giá trị mặc định cho parameter.
+```js
+A
+```
 
+`console.log("B")` không chạy vì function đã dừng.
+
+## 8. Default parameter
+
+```js
 function hello(name = "Guest") {
-console.log(`Hello ${name}`);
+  console.log(`Hello ${name}`);
 }
-hello();
 
-Kết quả:Hello Guest
+hello(); // Hello Guest
+hello("Duy"); // Hello Duy
+```
 
-Nếu truyền giá trị:hello("Duy");
+## 9. Function Expression
 
-Kết quả:Hello Duy
-
-Function Expression
-Có thể lưu function vào biến.
+```js
 const hello = function () {
-console.log("Hello");
+  console.log("Hello");
 };
 
 hello();
+```
 
-Đây gọi là:Function Expression
+Đây được gọi là `Function Expression`.
 
-Function Declaration
-Cách khai báo thông thường:
+## 10. Function Declaration
+
+```js
 function hello() {
-console.log("Hello");
+  console.log("Hello");
 }
-Đây gọi là: Function Declaration
+```
 
-Arrow Function
-Arrow function là cách viết function ngắn hơn.
+Đây là cách khai báo function truyền thống.
+
+## 11. Arrow Function
+
+```js
 const hello = () => {
-console.log("Hello");
+  console.log("Hello");
 };
 
 hello();
-Function có thể gọi Function khác
+```
+
+Arrow function là cú pháp ngắn gọn hơn.
+
+## 12. Gọi function từ function khác
+
+```js
 function add(a, b) {
-return a + b;
+  return a + b;
 }
 
 function double(number) {
-return number \* 2;
+  return number * 2;
 }
 
 const result = double(add(10, 20));
-console.log(result);
+console.log(result); // 60
+```
 
-Kết quả:60
+## 13. Callback Function
 
-Callback Function
-Function có thể được truyền vào một function khác.
-
+```js
 function sayHello() {
-console.log("Hello");
+  console.log("Hello");
 }
 
 function execute(callback) {
-callback();
+  callback();
 }
 
 execute(sayHello);
+```
 
-sayHello là callback function.
+`sayHello` ở đây là callback function.
 
-Anonymous Function
+## 14. Anonymous Function
 
-Function không có tên:
+```js
 const hello = function () {
-console.log("Hello");
+  console.log("Hello");
 };
+```
 
-Function này được gọi là anonymous function.
+Hàm này không có tên, nên gọi là anonymous function.
 
-Recursive Function
-Function có thể tự gọi chính nó.
-Ví dụ tính giai thừa:
+## 15. Recursive Function
+
+```js
 function factorial(n) {
+  if (n === 1) {
+    return 1;
+  }
 
-    if (n === 1) {
-        return 1;
-    }
-
-    return n * factorial(n - 1);
-
+  return n * factorial(n - 1);
 }
 
-console.log(factorial(5));
+console.log(factorial(5)); // 120
+```
 
-Kết quả:120
+> Hàm đệ quy là hàm tự gọi chính nó.
 
-Đây gọi là recursion.
+## 16. Hoisting
 
-Function Declaration và Hoisting
-
-Function declaration có thể được gọi trước khi khai báo:
+```js
 hello();
+
 function hello() {
-console.log("Hello");
+  console.log("Hello");
 }
+```
 
-Điều này hoạt động do JavaScript xử lý function declaration trước khi thực thi code.
+Function declaration có thể được gọi trước khi khai báo.
 
-Tuy nhiên, khi học cơ bản nên khai báo function trước rồi mới gọi để code dễ đọc.
+## Kết luận
+
+Function là một phần cốt lõi của JavaScript. Nắm rõ cách khai báo, truyền tham số, trả về giá trị và gọi hàm sẽ giúp bạn viết code hiệu quả hơn rất nhiều.

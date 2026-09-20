@@ -1,222 +1,233 @@
-Object là kiểu dữ liệu dùng để lưu trữ nhiều thông tin có liên quan với nhau dưới dạng:
-key: value
+# Object trong JavaScript
 
-Ví dụ:
+Object là kiểu dữ liệu dùng để lưu trữ nhiều thông tin có liên quan với nhau theo dạng `key: value`.
+
+## 1. Object là gì?
+
+```js
 const user = {
-name: "Duy",
-age: 20,
-city: "Bắc Giang"
+  name: "Duy",
+  age: 20,
+  city: "Bắc Giang",
+};
+```
+
+Trong ví dụ trên:
+
+- `name` là key
+- `"Duy"` là value
+- `age` là key
+- `20` là value
+
+## 2. Tạo Object
+
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+  isStudent: true,
+};
+```
+
+Object có thể chứa nhiều loại dữ liệu khác nhau như:
+
+- String
+- Number
+- Boolean
+- Array
+- Object khác
+- Function
+
+## 3. Property của Object
+
+Dữ liệu bên trong object được gọi là property.
+
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+};
+```
+
+Có 2 property là:
+
+- `name`
+- `age`
+
+## 4. Truy cập property
+
+### Cách 1: Dot notation
+
+```js
+const user = {
+  name: "Duy",
+  age: 20,
 };
 
-Object trên có 3 property:
-name → "Duy"
-age → 20
-city → "Bắc Giang"
+console.log(user.name); // Duy
+console.log(user.age); // 20
+```
 
-Tạo Object
-Cách phổ biến nhất:
+### Cách 2: Bracket notation
+
+```js
+console.log(user["name"]); // Duy
+console.log(user["age"]); // 20
+```
+
+## 5. Thêm property
+
+```js
 const user = {
-name: "Duy",
-age: 20
-};
-
-Object có thể chứa nhiều loại dữ liệu:
-const user = {
-name: "Duy",
-age: 20,
-isStudent: true,
-score: 8.5
-};
-
-Property
-Dữ liệu bên trong Object được gọi là property.
-
-const user = {
-name: "Duy",
-age: 20
-};
-
-Có:
-name → property
-age → property
-
-Cấu trúc:
-
-const object = {
-key: value
-};
-
-Truy cập Property
-
-Có 2 cách chính.
-
-Dot notation
-const user = {
-name: "Duy",
-age: 20
-};
-
-console.log(user.name);
-console.log(user.age);
-Bracket notation
-console.log(user["name"]);
-console.log(user["age"]);
-
-Hai cách trên tương đương.
-
-Thêm Property
-Có thể thêm property sau khi Object được tạo.
-
-const user = {
-name: "Duy"
+  name: "Duy",
 };
 
 user.age = 20;
 user.city = "Bắc Giang";
 
 console.log(user);
+```
 
-Sửa Property
+## 6. Sửa property
+
+```js
 const user = {
-name: "Duy",
-age: 20
+  name: "Duy",
+  age: 20,
 };
 
 user.age = 21;
-console.log(user.age);
+console.log(user.age); // 21
+```
 
-Kết quả: 21
+## 7. Xóa property
 
-Xóa Property
-
-Dùng: delete
-
-Ví dụ:
+```js
 const user = {
-name: "Duy",
-age: 20,
-city: "Bắc Giang"
+  name: "Duy",
+  age: 20,
+  city: "Bắc Giang",
 };
 
 delete user.city;
-
 console.log(user);
+```
 
-Property có nhiều kiểu dữ liệu
-Object có thể chứa:
-const product = {
-name: "iPhone",
-price: 20000000,
-quantity: 5,
-available: true,
-description: null
+## 8. Object chứa Array
+
+```js
+const user = {
+  name: "Duy",
+  skills: ["HTML", "CSS", "JavaScript"],
 };
-
-10. Object chứa Array
-    const user = {
-    name: "Duy",
-    skills: ["HTML","CSS","JavaScript"]
-    };
-
-Truy cập:
 
 console.log(user.skills);
-console.log(user.skills[0]);
+console.log(user.skills[0]); // HTML
+```
 
-Object chứa Object
+## 9. Object chứa Object
 
-Object có thể chứa Object khác.
+```js
 const user = {
-name: "Duy",
-
-    address: {
-        city: "Bắc Giang",
-        district: "Việt Yên"
-    }
-
+  name: "Duy",
+  address: {
+    city: "Bắc Giang",
+    district: "Việt Yên",
+  },
 };
 
-Truy cập:
-console.log(user.address.city);
-console.log(user.address.district);
+console.log(user.address.city); // Bắc Giang
+```
 
 Đây gọi là nested object.
 
-Object chứa Function
+## 10. Object chứa Function
 
-Function bên trong Object được gọi là method.
+Function trong object được gọi là method.
 
+```js
 const user = {
-name: "Duy",
-
-    sayHello: function () {
-        console.log("Hello");
-    }
-
-};
-
-Gọi: user.sayHello();
-
-Method
-Có thể viết method ngắn hơn:
-
-const user = {
-name: "Duy",
-sayHello() {
-console.log("Hello");
-}
+  name: "Duy",
+  sayHello: function () {
+    console.log("Hello");
+  },
 };
 
 user.sayHello();
+```
 
-15. this
-    Trong method của Object, this thường đại diện cho Object đang gọi method.
-    const user = {
+Cách viết gọn hơn:
 
-        name: "Duy",
-
-        introduce() {
-            console.log(this.name);
-        }
-
-    };
-
-user.introduce();
-
-Ở đây: this.name
-tương đương: user.name
-
-Kiểm tra Property tồn tại
-
-Dùng:in
-Ví dụ:
+```js
 const user = {
-name: "Duy",
-age: 20
+  name: "Duy",
+  sayHello() {
+    console.log("Hello");
+  },
 };
 
-console.log("name" in user);
-console.log("email" in user);
+user.sayHello();
+```
 
-Kết quả: true ,false
+## 11. `this` trong Object
 
-hasOwnProperty
-
-Có thể kiểm tra property trực tiếp:
-console.log(user.hasOwnProperty("name"));
-
-21. Object.keys()
-
-Lấy danh sách key.
-
+```js
 const user = {
-name: "Duy",
-age: 20,
-city: "Bắc Giang"
+  name: "Duy",
+  introduce() {
+    console.log(this.name);
+  },
 };
 
-console.log(Object.keys(user));
-Kết quả: ["name", "age", "city"]
+user.introduce(); // Duy
+```
+
+`this` ở đây đại diện cho object đang gọi method.
+
+## 12. Kiểm tra property có tồn tại không
+
+### Dùng `in`
+
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+};
+
+console.log("name" in user); // true
+console.log("email" in user); // false
+```
+
+### Dùng `hasOwnProperty()`
+
+```js
+console.log(user.hasOwnProperty("name")); // true
+```
+
+## 13. `Object.keys()`
+
+```js
+const user = {
+  name: "Duy",
+  age: 20,
+  city: "Bắc Giang",
+};
+
+console.log(Object.keys(user)); // ["name", "age", "city"]
+```
+
+## 14. Kết luận
+
+Object là kiểu dữ liệu cực kỳ quan trọng trong JavaScript. Nó giúp bạn lưu trữ dữ liệu có cấu trúc, mô phỏng thực thể trong ứng dụng và làm việc rất hiệu quả với dữ liệu phức tạp.
+
+---
+
+Bạn nên luyện tập nhiều với ví dụ như:
+
+- Thông tin sinh viên
+- Thông tin sản phẩm
+- Thông tin người dùng
+- Danh sách công việc
 
 Object.values()
 Lấy danh sách value.

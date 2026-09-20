@@ -1,253 +1,202 @@
-1. Array là gì?
-   Array là kiểu dữ liệu dùng để lưu nhiều giá trị trong cùng một biến.
+# Array trong JavaScript
 
-Ví dụ:
-let fruits = ["Apple", "Banana", "Orange"];
+Mảng là kiểu dữ liệu dùng để lưu trữ nhiều giá trị trong cùng một biến.
+
+## 1. Array là gì?
+
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 console.log(fruits);
+```
 
 Kết quả:
-["Apple", "Banana", "Orange"]
 
-2. Tạo Array
-   Cách 1 - Array literal
+```js
+["Apple", "Banana", "Orange"];
+```
 
-Cách thường dùng nhất:
+Array cho phép lưu nhiều phần tử, có thể là số, chuỗi, object, thậm chí là mảng khác.
 
-let numbers = [10, 20, 30, 40];
-let names = ["An", "Bình", "Cường"];
+## 2. Cách tạo Array
 
-Cách 2 - new Array()
-let numbers = new Array(10, 20, 30);
+### Cách 1: Literal
 
-console.log(numbers);
+```js
+const numbers = [10, 20, 30, 40];
+const names = ["An", "Bình", "Cường"];
+```
 
-Kết quả: [10, 20, 30]
+### Cách 2: Dùng `new Array()`
 
-Thông thường nên dùng:
+```js
+const numbers = new Array(10, 20, 30);
+console.log(numbers); // [10, 20, 30]
+```
 
-let numbers = [10, 20, 30];
+> Nên dùng cách literal vì ngắn gọn và dễ đọc hơn.
 
-3. Array có thể chứa nhiều kiểu dữ liệu
-   let data = [
-   "Duy",
-   20,
-   true,
-   null,
-   undefined
-   ];
+## 3. Array có thể chứa nhiều kiểu dữ liệu
 
-Một Array có thể chứa:
+```js
+const data = ["Duy", 20, true, null, undefined, { city: "Bắc Giang" }];
 
-String
-Number
-Boolean
-Object
-Array
-Function
-null
-undefined
+console.log(data);
+```
 
-Ví dụ:
-
-let student = [
-"Nguyễn Văn A",
-20,
-true,
-{
-city: "Bắc Giang"
-}
-]; 4. Index trong Array
-
-Array sử dụng index để xác định vị trí.
+## 4. Index trong Array
 
 Index bắt đầu từ 0.
 
-let fruits = ["Apple", "Banana", "Orange"];
-Index Value
-0 Apple
-1 Banana
-2 Orange
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 
-Lấy phần tử:
+console.log(fruits[0]); // Apple
+console.log(fruits[1]); // Banana
+console.log(fruits[2]); // Orange
+```
 
-console.log(fruits[0]);
-console.log(fruits[1]);
-console.log(fruits[2]);
+### Lấy phần tử cuối
 
-Kết quả:
+```js
+const fruits = ["Apple", "Banana", "Orange"];
+console.log(fruits[fruits.length - 1]); // Orange
+```
 
-Apple
-Banana
-Orange
+## 5. `length`
 
-Lấy phần tử cuối
-let fruits = ["Apple", "Banana", "Orange"];
+`length` trả về số lượng phần tử trong mảng.
 
-console.log(fruits[fruits.length - 1]);
+```js
+const numbers = [10, 20, 30, 40];
+console.log(numbers.length); // 4
+```
 
-Kết quả: Orange
+## 6. Thay đổi phần tử
 
-Vì: fruits.length bằng 3.
-
-Index cuối:
-
-length
-
-length trả về số lượng phần tử.
-
-let numbers = [10, 20, 30, 40];
-
-console.log(numbers.length);
-
-Kết quả:4
-
-Ví dụ:
-
-let names = ["An", "Bình", "Cường"];
-
-console.log(names.length);
-
-Kết quả: 3
-
-Thay đổi phần tử
-let fruits = ["Apple", "Banana", "Orange"];
-
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 fruits[1] = "Mango";
 
-console.log(fruits);
+console.log(fruits); // ["Apple", "Mango", "Orange"]
+```
 
-Kết quả:
+## 7. Thêm phần tử
 
-["Apple", "Mango", "Orange"]
+### `push()` — thêm vào cuối
 
-Thêm phần tử bằng push()
-
-push() thêm phần tử vào cuối Array.
-
-let fruits = ["Apple", "Banana"];
-
+```js
+const fruits = ["Apple", "Banana"];
 fruits.push("Orange");
 
-console.log(fruits);
+console.log(fruits); // ["Apple", "Banana", "Orange"]
+```
 
-Kết quả:
+### `unshift()` — thêm vào đầu
 
-["Apple", "Banana", "Orange"]
-
-Có thể thêm nhiều phần tử:
-
-fruits.push("Mango", "Grape");
-
-Xóa phần tử cuối bằng pop()
-let fruits = ["Apple", "Banana", "Orange"];
-
-fruits.pop();
-
-console.log(fruits);
-
-Kết quả:
-
-["Apple", "Banana"]
-
-pop() trả về phần tử bị xóa:
-
-let fruits = ["Apple", "Banana", "Orange"];
-
-let removed = fruits.pop();
-
-console.log(removed);
-
-Kết quả:Orange
-
-Thêm phần tử đầu bằng unshift()
-let fruits = ["Banana", "Orange"];
-
+```js
+const fruits = ["Banana", "Orange"];
 fruits.unshift("Apple");
 
-console.log(fruits);
+console.log(fruits); // ["Apple", "Banana", "Orange"]
+```
 
-Kết quả:
+## 8. Xóa phần tử
 
-["Apple", "Banana", "Orange"]
+### `pop()` — xóa phần tử cuối
 
-Xóa phần tử đầu bằng shift()
-let fruits = ["Apple", "Banana", "Orange"];
+```js
+const fruits = ["Apple", "Banana", "Orange"];
+fruits.pop();
 
+console.log(fruits); // ["Apple", "Banana"]
+```
+
+### `shift()` — xóa phần tử đầu
+
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 fruits.shift();
 
-console.log(fruits);
+console.log(fruits); // ["Banana", "Orange"]
+```
 
-Kết quả:
+## 9. Các phương thức cơ bản
 
-["Banana", "Orange"]
+| Method       | Chức năng                         |
+| ------------ | --------------------------------- |
+| `push()`     | Thêm phần tử vào cuối             |
+| `pop()`      | Xóa phần tử cuối                  |
+| `unshift()`  | Thêm phần tử vào đầu              |
+| `shift()`    | Xóa phần tử đầu                   |
+| `indexOf()`  | Tìm vị trí phần tử                |
+| `includes()` | Kiểm tra phần tử có tồn tại không |
+| `slice()`    | Cắt một phần của mảng             |
+| `splice()`   | Xóa, thêm hoặc thay thế phần tử   |
 
-Các phương thức cơ bản
-Method Chức năng
-push() Thêm cuối
-pop() Xóa cuối
-unshift() Thêm đầu
-shift() Xóa đầu
+## 10. `indexOf()`
 
-Ví dụ:
-let numbers = [2, 3];
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 
-numbers.push(4);
-numbers.unshift(1);
+console.log(fruits.indexOf("Banana")); // 1
+console.log(fruits.indexOf("Mango")); // -1
+```
 
-console.log(numbers);
+## 11. `includes()`
 
-Kết quả:
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 
-[1, 2, 3, 4]
+console.log(fruits.includes("Banana")); // true
+console.log(fruits.includes("Mango")); // false
+```
 
-indexOf()
-Tìm vị trí của phần tử.
+## 12. `slice()`
 
-let fruits = ["Apple", "Banana", "Orange"];
+```js
+const numbers = [10, 20, 30, 40, 50];
+const result = numbers.slice(1, 4);
 
-console.log(fruits.indexOf("Banana"));
+console.log(result); // [20, 30, 40]
+```
 
-Kết quả:1
-Nếu không tìm thấy:
-console.log(fruits.indexOf("Mango"));
+## 13. `splice()`
 
-Kết quả :-1
+### Xóa phần tử
 
-includes()
-Kiểm tra Array có chứa phần tử hay không.
-
-let fruits = ["Apple", "Banana", "Orange"];
-
-console.log(fruits.includes("Banana"));
-
-Kết quả: true
-console.log(fruits.includes("Mango"));
-
-Kết quả:false
-
-15. slice()
-
-Dùng để lấy một phần của Array.
-let numbers = [10, 20, 30, 40, 50];
-let result = numbers.slice(1, 4);
-
-console.log(result);
-Kết quả:[20, 30, 40]
-
-splice()
-splice() có thể:
-
-Xóa
-Thêm
-Thay thế
-
-Ví dụ xóa:
-
-let fruits = ["Apple", "Banana", "Orange"];
-
+```js
+const fruits = ["Apple", "Banana", "Orange"];
 fruits.splice(1, 1);
 
-console.log(fruits);
+console.log(fruits); // ["Apple", "Orange"]
+```
+
+### Thêm phần tử
+
+```js
+const fruits = ["Apple", "Orange"];
+fruits.splice(1, 0, "Banana");
+
+console.log(fruits); // ["Apple", "Banana", "Orange"]
+```
+
+## 14. Tổng kết
+
+Mảng là công cụ cực kỳ quan trọng trong JavaScript. Bạn sẽ sử dụng nó thường xuyên trong:
+
+- Quản lý danh sách dữ liệu
+- Duyệt dữ liệu
+- Xử lý form
+- Làm việc với API
+- Thiết kế web app
+
+---
+
+Nếu bạn muốn, mình có thể tiếp tục viết thêm:
+
+- `map()`, `filter()`, `reduce()`
+- Duyệt mảng bằng `forEach()`
+- Bài tập mảng thực hành
 
 Kết quả:
 

@@ -75,6 +75,13 @@ console.log(user["name"]); // Duy
 console.log(user["age"]); // 20
 ```
 
+Dùng dấu chấm khi tên property đã biết. Dùng `[]` khi tên property nằm trong biến hoặc có ký tự đặc biệt.
+
+```js
+const propertyName = "name";
+console.log(user[propertyName]); // Duy
+```
+
 ## 5. Thêm property
 
 ```js
@@ -286,6 +293,8 @@ Kết quả:
 { name: "Duy", age: 20, city: "Bắc Giang", isStudent: true }
 ```
 
+Spread tạo object mới ở mức nông (shallow copy). Nếu object có object con, object con đó vẫn được dùng chung tham chiếu.
+
 ## 18. Object trong thực tế
 
 Object thường dùng để mô tả:
@@ -307,6 +316,18 @@ const product = {
 
 console.log(product.name);
 console.log(product.price);
+```
+
+## 19. Tóm tắt thao tác object
+
+```js
+const student = { name: "An", score: 8 };
+student.age = 20; // Thêm property
+student.score = 9; // Sửa property
+delete student.age; // Xóa property
+
+const { name, score } = student; // Lấy property
+console.log(name, score);
 ```
 
 ---

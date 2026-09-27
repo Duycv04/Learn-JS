@@ -1,6 +1,6 @@
 # Array trong JavaScript
 
-Mảng là kiểu dữ liệu dùng để lưu trữ nhiều giá trị trong cùng một biến.
+Mảng (`Array`) dùng để lưu nhiều giá trị theo thứ tự trong một biến. Mỗi giá trị trong mảng được gọi là một phần tử; các phần tử có thể là số, chuỗi, object hoặc kiểu dữ liệu khác.
 
 ## 1. Array là gì?
 
@@ -45,7 +45,7 @@ console.log(data);
 
 ## 4. Index trong Array
 
-Index bắt đầu từ 0.
+Vị trí của phần tử được gọi là `index` và bắt đầu từ `0`. Với mảng có `length` phần tử, index hợp lệ chạy từ `0` đến `length - 1`.
 
 ```js
 const fruits = ["Apple", "Banana", "Orange"];
@@ -81,6 +81,8 @@ console.log(fruits); // ["Apple", "Mango", "Orange"]
 ```
 
 ## 7. Thêm phần tử
+
+Các phương thức `push()` và `unshift()` thay đổi mảng ban đầu. `const` không làm mảng bất biến: bạn vẫn có thể sửa, thêm hoặc xóa phần tử.
 
 ### `push()` — thêm vào cuối
 
@@ -153,6 +155,8 @@ console.log(fruits.includes("Mango")); // false
 
 ## 12. `slice()`
 
+`slice(start, end)` tạo một mảng mới từ `start` đến trước `end`; mảng gốc không thay đổi.
+
 ```js
 const numbers = [10, 20, 30, 40, 50];
 const result = numbers.slice(1, 4);
@@ -161,6 +165,8 @@ console.log(result); // [20, 30, 40]
 ```
 
 ## 13. `splice()`
+
+`splice(start, deleteCount, ...items)` thay đổi trực tiếp mảng gốc. Dùng `slice()` khi chỉ muốn lấy một phần mà giữ nguyên mảng ban đầu.
 
 ### Xóa phần tử
 
@@ -309,6 +315,8 @@ fruits.forEach((fruit) => {
 
 ## 21. `map()`
 
+`map()` tạo mảng mới có cùng số phần tử, thường dùng để biến đổi từng phần tử.
+
 ```js
 const numbers = [1, 2, 3, 4];
 const doubled = numbers.map((number) => number * 2);
@@ -318,6 +326,8 @@ console.log(doubled); // [2, 4, 6, 8]
 
 ## 22. `filter()`
 
+`filter()` tạo mảng mới chỉ gồm những phần tử vượt qua điều kiện.
+
 ```js
 const numbers = [1, 2, 3, 4, 5, 6];
 const evenNumbers = numbers.filter((number) => number % 2 === 0);
@@ -326,6 +336,8 @@ console.log(evenNumbers); // [2, 4, 6]
 ```
 
 ## 23. `reduce()`
+
+`reduce()` gộp các phần tử thành một kết quả, ví dụ tổng hoặc một object thống kê. Giá trị `0` bên dưới là giá trị ban đầu của biến tích lũy.
 
 ```js
 const numbers = [1, 2, 3, 4];
@@ -404,3 +416,31 @@ Một số phương thức quan trọng cần ghi nhớ:
 - `sort()`, `reverse()`
 - `forEach()`, `map()`, `filter()`, `reduce()`
 - `find()`, `findIndex()`, `some()`, `every()`, `concat()`
+
+## Chọn cách duyệt phù hợp
+
+| Nhu cầu                                                  | Cách dùng   |
+| -------------------------------------------------------- | ----------- |
+| Thực hiện hành động với từng phần tử, không tạo mảng mới | `forEach()` |
+| Biến đổi từng phần tử thành một mảng mới                 | `map()`     |
+| Lọc lấy các phần tử phù hợp                              | `filter()`  |
+| Tìm một phần tử đầu tiên phù hợp                         | `find()`    |
+| Tính một kết quả gộp như tổng                            | `reduce()`  |
+
+```js
+const scores = [6, 8, 10];
+const passedScores = scores.filter((score) => score >= 7);
+const doubledScores = scores.map((score) => score * 2);
+const totalScore = scores.reduce((total, score) => total + score, 0);
+
+console.log(passedScores); // [8, 10]
+console.log(doubledScores); // [12, 16, 20]
+console.log(totalScore); // 24
+```
+
+## Bài tập tự luyện
+
+1. Tạo mảng điểm gồm 5 số và in từng điểm bằng `for...of`.
+2. Tìm điểm lớn hơn hoặc bằng 8 bằng `filter()`.
+3. Tính tổng điểm bằng `reduce()`.
+4. Sắp xếp một bản sao của mảng điểm tăng dần mà không làm đổi mảng ban đầu.

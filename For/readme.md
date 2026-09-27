@@ -56,7 +56,7 @@ do {
 
 ## 4. `for...in`
 
-Dùng để duyệt các key hoặc property của object.
+Dùng `for...in` để duyệt các key của object. Khi duyệt mảng, nên dùng vòng `for` hoặc `for...of` để tránh nhầm key (index) với giá trị.
 
 ```js
 const user = {
@@ -156,3 +156,27 @@ Kết quả:
 | `while`       | Không biết trước số lần, dựa vào điều kiện |
 | `do...while`  | Phải chạy ít nhất 1 lần                    |
 | `for...in`    | Duyệt key của object                       |
+| `for...of`    | Duyệt giá trị trong array hoặc chuỗi       |
+
+## 8. Duyệt mảng với `for...of`
+
+```js
+const fruits = ["Táo", "Cam", "Xoài"];
+
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+```
+
+## 9. Tránh vòng lặp vô hạn
+
+Trong `while`, hãy đảm bảo phần thân vòng lặp có thể làm điều kiện trở thành `false`.
+
+```js
+let count = 0;
+
+while (count < 3) {
+  console.log(count);
+  count++; // Nếu quên cập nhật count, vòng lặp không kết thúc.
+}
+```

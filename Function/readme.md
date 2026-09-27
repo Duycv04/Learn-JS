@@ -4,6 +4,8 @@ Hàm là một khối code có thể được gọi nhiều lần để thực h
 
 ## 1. Khai báo function
 
+Khai báo hàm bằng `function`, đặt tên mô tả công việc rồi viết phần thân trong `{}`.
+
 ```js
 function sayHello() {
   console.log("Hello");
@@ -64,6 +66,8 @@ console.log(result); // 30
 
 ### `return` khác `console.log`
 
+`console.log()` chỉ hiển thị dữ liệu; `return` gửi kết quả về nơi gọi để có thể tiếp tục sử dụng.
+
 ```js
 function sum(a, b) {
   console.log(a + b);
@@ -109,12 +113,14 @@ test();
 Kết quả:
 
 ```js
-A
+A;
 ```
 
 `console.log("B")` không chạy vì function đã dừng.
 
 ## 8. Default parameter
+
+Giá trị mặc định được dùng khi đối số bị bỏ qua hoặc có giá trị `undefined`.
 
 ```js
 function hello(name = "Guest") {
@@ -158,6 +164,13 @@ hello();
 ```
 
 Arrow function là cú pháp ngắn gọn hơn.
+
+Khi thân hàm chỉ có một biểu thức, có thể bỏ `{}` và `return`:
+
+```js
+const square = (number) => number * number;
+console.log(square(4)); // 16
+```
 
 ## 12. Gọi function từ function khác
 
@@ -228,6 +241,19 @@ function hello() {
 
 Function declaration có thể được gọi trước khi khai báo.
 
-## Kết luận
+Function expression gán cho `const` không dùng được trước dòng khai báo:
 
-Function là một phần cốt lõi của JavaScript. Nắm rõ cách khai báo, truyền tham số, trả về giá trị và gọi hàm sẽ giúp bạn viết code hiệu quả hơn rất nhiều.
+```js
+const greet = function () {
+  console.log("Xin chào");
+};
+
+greet();
+```
+
+## 17. Cách viết một hàm dễ dùng
+
+- Đặt tên hàm theo hành động, ví dụ `calculateTotal`.
+- Mỗi hàm nên tập trung vào một việc.
+- Dùng `return` nếu cần lấy kết quả để xử lý tiếp.
+- Truyền dữ liệu qua tham số thay vì phụ thuộc vào biến bên ngoài.

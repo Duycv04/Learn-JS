@@ -1,3 +1,5 @@
+## 6. Ví dụ tổng hợp
+
 # Kiểu dữ liệu trong JavaScript
 
 JavaScript có 2 nhóm kiểu dữ liệu chính:
@@ -6,6 +8,8 @@ JavaScript có 2 nhóm kiểu dữ liệu chính:
 - Kiểu dữ liệu tham chiếu (reference)
 
 ## 1. Kiểu dữ liệu nguyên thủy
+
+Giá trị nguyên thủy được xử lý như một giá trị đơn. Các kiểu cơ bản người mới thường gặp nhất là `String`, `Number`, `Boolean`, `undefined` và `null`.
 
 | Kiểu dữ liệu | Ví dụ                   | Mô tả                      |
 | ------------ | ----------------------- | -------------------------- |
@@ -35,6 +39,8 @@ console.log(score); // undefined
 
 ## 2. Kiểu dữ liệu tham chiếu
 
+Array và object là kiểu tham chiếu. Khi gán một biến array/object sang biến khác, hai biến cùng tham chiếu tới dữ liệu đó.
+
 ### `Object`
 
 ```js
@@ -63,6 +69,31 @@ console.log(b); // null
 
 - `undefined`: biến chưa có giá trị
 - `null`: biến đã được gán nhưng có ý nghĩa là "không có giá trị"
+
+## 4. Kiểm tra kiểu dữ liệu
+
+Dùng `typeof` để kiểm tra nhiều kiểu dữ liệu nguyên thủy:
+
+```js
+console.log(typeof "Xin chào"); // "string"
+console.log(typeof 10); // "number"
+console.log(typeof true); // "boolean"
+console.log(typeof undefined); // "undefined"
+```
+
+Có một ngoại lệ lịch sử: `typeof null` trả về `"object"`. Để kiểm tra `null`, so sánh trực tiếp bằng `=== null`.
+
+## 5. Phân biệt array và object
+
+```js
+const colors = ["đỏ", "xanh"];
+const user = { name: "An" };
+
+console.log(Array.isArray(colors)); // true
+console.log(Array.isArray(user)); // false
+```
+
+Dùng `Array.isArray()` để kiểm tra array thay vì dựa vào `typeof`.
 
 ## 4. Ví dụ tổng hợp
 

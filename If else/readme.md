@@ -1,6 +1,7 @@
 # Câu lệnh điều kiện trong JavaScript
 
 Câu lệnh điều kiện giúp chương trình quyết định thực hiện hành động nào dựa trên điều kiện.
+Điều kiện được JavaScript đánh giá thành `true` hoặc `false`. Dùng `===` để so sánh cả giá trị lẫn kiểu dữ liệu.
 
 ## 1. `if`
 
@@ -44,7 +45,7 @@ if (score >= 5) {
 
 ## 3. `else if`
 
-Dùng khi có nhiều điều kiện.
+Dùng khi có nhiều trường hợp loại trừ nhau. Viết điều kiện cụ thể hoặc giới hạn cao trước để nhánh rộng không bắt mất trường hợp phía sau.
 
 ```js
 const score = 8;
@@ -108,3 +109,33 @@ console.log(message);
 - `else if` dùng cho nhiều điều kiện
 - `switch` hợp lý khi có nhiều lựa chọn cố định
 - `? :` là dạng rút gọn cho điều kiện đơn giản
+
+## Toán tử so sánh thường dùng
+
+| Toán tử   | Ý nghĩa                     | Ví dụ                 |
+| --------- | --------------------------- | --------------------- |
+| `===`     | Bằng cả giá trị và kiểu     | `5 === 5` là `true`   |
+| `!==`     | Khác giá trị hoặc khác kiểu | `5 !== "5"` là `true` |
+| `>` / `<` | Lớn hơn / nhỏ hơn           | `age >= 18`           |
+| `&&`      | Cả hai điều kiện đều đúng   | `age >= 18 && hasId`  |
+| `!`       | Đảo ngược giá trị đúng/sai  | `!isReady`            |
+
+Toán tử `||` trả về điều kiện đúng khi ít nhất một vế đúng, ví dụ `isAdmin || isOwner`.
+
+## 8. Ví dụ kiểm tra khoảng điểm
+
+```js
+const score = 8;
+
+if (score < 0 || score > 10) {
+  console.log("Điểm không hợp lệ");
+} else if (score >= 8) {
+  console.log("Giỏi");
+} else if (score >= 5) {
+  console.log("Đạt");
+} else {
+  console.log("Chưa đạt");
+}
+```
+
+Kiểm tra dữ liệu không hợp lệ trước, rồi mới xét các mức điểm.
